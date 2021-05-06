@@ -5,46 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Udacity - patrones de diseño con js</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <main class="container">
+    <main class="container" id="container">
+      <div class="list-cats">
+        <ul class="list">
+          <li class="cat">
+            <button id="cat1" class="btn-cat" id="btn-cat1">Sophi Cat</button>
+          </li>
+          <li class="cat">
+            <button id="cat2" class="btn-cat">Raul Cat</button>
+          </li>
+          <li class="cat">
+            <button id="cat3" class="btn-cat">Esteban Cat</button>
+          </li>
+          <li class="cat">
+            <button id="cat4" class="btn-cat">Fernanda Cat</button>
+          </li>
+          <li class="cat">
+            <button id="cat5" class="btn-cat">Lucas Cat</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container-cards-app">
         <div class="text-app">
-            <h1>JUEGO CAT CLICKER</h1>
-            <p>Dale click a la imagen cuantas veces tu quieras 
-                y verás cuantas veces le das click de manera inmediata
-            </p>
+          <h1>JUEGO CAT CLICKER</h1>
+          <p>
+            Dale click a la imagen cuantas veces tu quieras y verás cuantas
+            veces le das click de manera inmediata
+          </p>
         </div>
-        <div class="container-cards">
-            <div class="image__container">
-                <div id="name-cat"></div>
-                <div id="image-cat">
-                    <img
-                  src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2F0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                  alt="Image cat"
-                  title="Dame un click"
-                    />
-                </div>
-                <div class="btn-image">
-                    <input type="text" id="input-image" disabled style="text-align: center;"></input>
-                </div>
-            </div>
-    
-            <div class="image2__container">
-                <div id="name-cat-2"></div>
-                <div  id="image-cat-2">
-                    <img
-                  src="https://images.unsplash.com/photo-1472491235688-bdc81a63246e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGNhdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                  alt="Image cat"
-                  title="Dame un click"
-                    />
-                </div>
-                <div class="btn-image">
-                    <input type="text" id="input-image-2" disabled style="text-align: center;"></input>
-                </div>
-            </div>
-        </div>
+
+        <div class="container-cards" id="container-cards"></div>
+      </div>
     </main>
 
     <script src="index.js"></script>
