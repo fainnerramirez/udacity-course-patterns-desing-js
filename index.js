@@ -127,67 +127,96 @@ function main() {
     btnCat1.addEventListener("click", () => {
       sw = true;
       containerCards.innerHTML = "";
-      containerCards.append(createDivContainer(arrayCats.Cat1.img, "Sophi"));
-
+      containerCards.append(
+        createDivContainer(arrayCats.Cat1.img, arrayCats.Cat1.name)
+      );
       let image = document.getElementById("img-cat");
       let input = document.getElementById("input-cat");
-
+      //estado inicial del input
+      sessionStorage.setItem("valueCat1", cont1);
+      let value = sessionStorage.getItem("valueCat1");
+      input.value = value;
       image.addEventListener("click", () => {
-        localStorage.setItem("valueCat1", cont1++);
-        let value = localStorage.getItem("valueCat1");
-
-        input.value = value;
+        sessionStorage.setItem("valueCat1", cont1++);
+        let value2 = sessionStorage.getItem("valueCat1");
+        input.value = value2;
       });
     });
 
     btnCat2.addEventListener("click", () => {
       sw = true;
       containerCards.innerHTML = "";
-      containerCards.append(createDivContainer(arrayCats.Cat2.img, "Raul"));
+      containerCards.append(
+        createDivContainer(arrayCats.Cat2.img, arrayCats.Cat2.name)
+      );
       let image = document.getElementById("img-cat");
       let input = document.getElementById("input-cat");
-
+      //estado inicial del input
+      sessionStorage.setItem("valueCat2", cont2);
+      let value = sessionStorage.getItem("valueCat2");
+      input.value = value;
       image.addEventListener("click", () => {
-        input.value = cont++;
+        sessionStorage.setItem("valueCat2", cont2++);
+        let value2 = sessionStorage.getItem("valueCat2");
+        input.value = value2;
       });
     });
 
     btnCat3.addEventListener("click", () => {
-      let cont = 0;
       sw = true;
       containerCards.innerHTML = "";
-      containerCards.append(createDivContainer(arrayCats.Cat3.img, "Esteban"));
+      containerCards.append(
+        createDivContainer(arrayCats.Cat3.img, arrayCats.Cat3.name)
+      );
       let image = document.getElementById("img-cat");
       let input = document.getElementById("input-cat");
-
+      //estado inicial del input
+      sessionStorage.setItem("valueCat3", cont3);
+      let value = sessionStorage.getItem("valueCat3");
+      input.value = value;
       image.addEventListener("click", () => {
-        input.value = cont++;
+        sessionStorage.setItem("valueCat3", cont3++);
+        let value2 = sessionStorage.getItem("valueCat3");
+        input.value = value2;
       });
     });
 
     btnCat4.addEventListener("click", () => {
-      let cont = 0;
       sw = true;
       containerCards.innerHTML = "";
-      containerCards.append(createDivContainer(arrayCats.Cat4.img, "Fernanda"));
+      containerCards.append(
+        createDivContainer(arrayCats.Cat4.img, arrayCats.Cat4.name)
+      );
       let image = document.getElementById("img-cat");
       let input = document.getElementById("input-cat");
+      //estado inicial del input
+      sessionStorage.setItem("valueCat4", cont4);
 
+      let value = sessionStorage.getItem("valueCat4");
+      input.value = value;
       image.addEventListener("click", () => {
-        input.value = cont++;
+        sessionStorage.setItem("valueCat4", cont4++);
+        let value2 = sessionStorage.getItem("valueCat4");
+        input.value = value2;
       });
     });
 
     btnCat5.addEventListener("click", () => {
-      let cont = 0;
       sw = true;
       containerCards.innerHTML = "";
-      containerCards.append(createDivContainer(arrayCats.Cat5.img, "Lucas"));
+      containerCards.append(
+        createDivContainer(arrayCats.Cat5.img, arrayCats.Cat5.name)
+      );
       let image = document.getElementById("img-cat");
       let input = document.getElementById("input-cat");
-
+      //estado inicial del input
+      sessionStorage.setItem("valueCat5", cont5);
+      let value = sessionStorage.getItem("valueCat5");
+      input.value = value;
       image.addEventListener("click", () => {
-        input.value = cont++;
+        sessionStorage.setItem("valueCat5", cont5++);
+        let value2 = sessionStorage.getItem("valueCat5");
+        input.value = value2;
       });
     });
   });
