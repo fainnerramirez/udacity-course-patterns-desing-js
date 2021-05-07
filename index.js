@@ -12,7 +12,7 @@ const arrayCats = {
     id: 1,
     name: "Raul Cat",
     img:
-      "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2F0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNhdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
   },
 
   Cat3: {
@@ -37,68 +37,70 @@ const arrayCats = {
   },
 };
 
-//console.log(arrayCats.Cat1.img);
-
 // Functions app
 
 const createImgCat = (UrlImgCat) => {
   let divImgCat = document.createElement("div");
   let imgCat = document.createElement("img");
+
   imgCat.setAttribute("src", UrlImgCat);
   imgCat.setAttribute("id", "img-cat");
+
+  divImgCat.classList.add("img-container");
+
   divImgCat.appendChild(imgCat);
 
   return divImgCat;
 };
 
 const createNameCat = (nameCat) => {
+  let divNameCat = document.createElement("div");
   let tagNameCat = document.createElement("h1");
   let textNameCat = document.createTextNode(nameCat);
+
+  divNameCat.classList.add("name-container");
+
   tagNameCat.appendChild(textNameCat);
-  return tagNameCat;
+  divNameCat.appendChild(tagNameCat);
+
+  return divNameCat;
 };
 
 const createInputCat = () => {
+  let divInputCat = document.createElement("div");
   let input = document.createElement("input");
+
   input.setAttribute("type", "text");
-  input.setAttribute("value", "0");
+  input.setAttribute("value", 0);
   input.setAttribute("disabled", "");
   input.setAttribute("id", "input-cat");
+  input.classList.add("input-cat");
+
   input.style.textAlign = "center";
-  return input;
+  divInputCat.style.textAlign = "center";
+  divInputCat.appendChild(input);
+
+  return divInputCat;
 };
 
 const createDivImage = (urlImage, nameCat) => {
   //create containers
   let divContainerCard = document.createElement("div");
-  let divImgCat = document.createElement("div");
-  let divNameCat = document.createElement("div");
-  let divInputCat = document.createElement("div");
 
   divContainerCard.classList.add("container-card");
-  divImgCat.classList.add("img-container");
-  divNameCat.classList.add("name-container");
-  divInputCat.classList.add("input-container");
-  divInputCat.setAttribute("id", "input-cat");
-  divInputCat.style.textAlign = "center";
 
-  divImgCat.appendChild(createImgCat(urlImage));
-  divNameCat.appendChild(createNameCat(nameCat));
-  divInputCat.appendChild(createInputCat());
-
-  divContainerCard.appendChild(divImgCat);
-  divContainerCard.appendChild(divNameCat);
-  divContainerCard.appendChild(divInputCat);
-
-  sw = true;
+  divContainerCard.appendChild(createImgCat(urlImage));
+  divContainerCard.appendChild(createNameCat(nameCat));
+  divContainerCard.appendChild(createInputCat());
 
   return divContainerCard;
 };
 
 const createDivContainer = (urlImage, nameCat) => {
-  let containerImage = document.createElement("div");
-  containerImage.appendChild(createDivImage(urlImage, nameCat));
-  return containerImage;
+  let container = document.createElement("section");
+  sw = true;
+  container.appendChild(createDivImage(urlImage, nameCat));
+  return container;
 };
 
 function main() {
@@ -113,16 +115,81 @@ function main() {
     let nodeText = document.createTextNode("Select a cat and have fun!");
     textDefault.append(nodeText);
 
-    sw = true;
+    containerCards.innerHTML = "";
+    containerCards.append(textDefault);
 
-    if (sw) {
-      containerCards.append(
-        createDivContainer(arrayCats.Cat1.img, arrayCats.Cat1.name)
-      );
-    } else {
+    let cont1 = 0,
+      cont2 = 0,
+      cont3 = 0,
+      cont4 = 0,
+      cont5 = 0;
+
+    btnCat1.addEventListener("click", () => {
+      sw = true;
       containerCards.innerHTML = "";
-      containerCards.append(textDefault);
-    }
+      containerCards.append(createDivContainer(arrayCats.Cat1.img, "Sophi"));
+
+      let image = document.getElementById("img-cat");
+      let input = document.getElementById("input-cat");
+
+      image.addEventListener("click", () => {
+        localStorage.setItem("valueCat1", cont1++);
+        let value = localStorage.getItem("valueCat1");
+
+        input.value = value;
+      });
+    });
+
+    btnCat2.addEventListener("click", () => {
+      sw = true;
+      containerCards.innerHTML = "";
+      containerCards.append(createDivContainer(arrayCats.Cat2.img, "Raul"));
+      let image = document.getElementById("img-cat");
+      let input = document.getElementById("input-cat");
+
+      image.addEventListener("click", () => {
+        input.value = cont++;
+      });
+    });
+
+    btnCat3.addEventListener("click", () => {
+      let cont = 0;
+      sw = true;
+      containerCards.innerHTML = "";
+      containerCards.append(createDivContainer(arrayCats.Cat3.img, "Esteban"));
+      let image = document.getElementById("img-cat");
+      let input = document.getElementById("input-cat");
+
+      image.addEventListener("click", () => {
+        input.value = cont++;
+      });
+    });
+
+    btnCat4.addEventListener("click", () => {
+      let cont = 0;
+      sw = true;
+      containerCards.innerHTML = "";
+      containerCards.append(createDivContainer(arrayCats.Cat4.img, "Fernanda"));
+      let image = document.getElementById("img-cat");
+      let input = document.getElementById("input-cat");
+
+      image.addEventListener("click", () => {
+        input.value = cont++;
+      });
+    });
+
+    btnCat5.addEventListener("click", () => {
+      let cont = 0;
+      sw = true;
+      containerCards.innerHTML = "";
+      containerCards.append(createDivContainer(arrayCats.Cat5.img, "Lucas"));
+      let image = document.getElementById("img-cat");
+      let input = document.getElementById("input-cat");
+
+      image.addEventListener("click", () => {
+        input.value = cont++;
+      });
+    });
   });
 }
 
